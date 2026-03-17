@@ -1,0 +1,880 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  overflow-x: hidden;
+   background-color: var(--color-fondo);
+}
+
+
+:root {
+  --color-primario: #3fe990;
+  --color-secundario: #7ef7b7;
+  --color-fondo: #b7fbd6;
+  --color-texto: #02311a;
+  --color-complementos: #106a3c;
+  --color-superpoderoso: #16d16f;
+  --color-crack: #dafeea;
+
+   --fuente-principal: 'Poppins', sans-serif;
+  --peso-normal: 400;
+  --peso-titulo: 700;
+  --peso-subtitulo: 500;
+}
+
+
+/* --- ESTILOS BASE (Móvil y Tablet: 0px a 1023px) --- */
+.nav-principal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--color-crack, #222);
+  position: relative;
+  z-index: 100;
+}
+
+.menu-toggle {
+  display: block; /* Visible en Móvil y Tablet */
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: none; /* Oculto por defecto */
+  flex-direction: column;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  width: 100%;
+  background-color: var(--color-crack, #222);
+  padding: 1.5rem 0;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.nav-links.active {
+  display: flex; /* Se muestra al activar el JS */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  width: 100%; /* Para que el área de clic sea toda la línea */
+}
+
+/* --- DESKTOP (1024px en adelante) --- */
+@media (min-width: 1024px) {
+  .menu-toggle {
+    display: none; /* Desaparece el botón */
+  }
+
+  .nav-links {
+    display: flex !important; /* Siempre visible */
+    flex-direction: row;      /* Horizontal */
+    position: static;         /* Vuelve al flujo normal */
+    width: 100%;              /* Ocupa el ancho restante */
+    padding: 0;
+    justify-content: space-evenly; /* Distribuye los links a lo ancho */
+    background: none;
+  }
+
+  .nav-links a {
+    width: auto;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  .nav-links a:hover {
+    border-bottom: 2px solid white;
+  }
+}
+
+.navbar-footer{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background-color: var(--color-superpoderoso);
+    padding: 2%;
+    
+}
+
+.nav-principal a {
+    font-family: var(--fuente-principal);
+    font-weight: var(--peso-subtitulo);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    color: var(--color-texto);
+}
+
+.nav-principal a:hover {
+    color: var(--color-secundario);
+}
+
+/* --- 1. ESTILOS BASE (Móvil: < 768px) --- */
+footer {
+  background-color: var(--color-superpoderoso);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.navbar-footer {
+  display: flex;
+  /* En móvil, si son muchos links, los ponemos en columna o permitimos que bajen */
+  flex-direction: column; 
+  align-items: center;
+  gap: 1.5rem; /* Más espacio para que sea fácil tocar con el dedo */
+}
+
+.navbar-footer a {
+  font-family: var(--fuente-principal);
+  font-weight: var(--peso-subtitulo);
+  text-decoration: none;
+  color: var(--color-crack);
+  font-size: 1.1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: var(--color-crack);
+  opacity: 0.8;
+  line-height: 1.4;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* --- 2. TABLET Y DESKTOP (>= 768px) --- */
+@media (min-width: 768px) {
+  footer {
+    padding: 4rem 2rem;
+  }
+
+  .navbar-footer {
+    flex-direction: row; /* Los links vuelven a estar en horizontal */
+    justify-content: center;
+    gap: 2.5rem; /* Más espacio entre ellos */
+    border-bottom: 1px solid rgba(0,0,0,0.1); /* Separador sutil */
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .navbar-footer a:hover {
+    color: var(--color-complementos);
+    transform: translateY(-2px); /* Pequeña animación */
+  }
+
+  footer p {
+    max-width: 100%; /* El texto puede ocupar más ancho */
+    color: var(--color-texto);
+  }
+}
+
+
+
+h1{
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    font-weight: var(--peso-titulo);
+}
+
+h1:hover{
+    color: var(--color-primario);
+}
+
+h2{
+    font-family: var(--fuente-principal);
+    font-weight: var(--peso-titulo);
+    color: var(--color-texto);
+}
+
+h3{
+    font-family: var(--fuente-principal);
+    font-weight: var(--peso-titulo);
+    color: var(--color-texto);
+}
+
+p{
+    font-family: var(--fuente-principal);
+    font-weight: var(--peso-normal);
+    color: var(--color-texto);
+}
+
+.tituloformulario{
+    font-family: var(--fuente-principal);
+    font-weight: var(--peso-titulo);
+    color: var(--color-texto);
+    text-align: center;
+    padding: 5%;
+}
+
+q{
+    font-family: var(--fuente-principal);
+    font-weight: var(--peso-subtitulo);
+    color: var(--color-texto);
+    
+}
+
+.textoq{
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+summary{
+    list-style: none;
+    cursor: pointer;
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    font-weight: var(--peso-titulo);
+}
+ summary::before{
+    content:"➕";
+    margin-right: 8px;
+    transition: transfor 0.3s ease;
+}
+
+summary:hover{
+  color: var(--color-complementos);
+}
+
+details[open] summary::before{
+    content: "✖";
+}
+
+ol,ul {
+  padding-left: 40px;
+}
+
+li {
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  font-weight: var(--peso-normal);
+}
+
+li::marker {
+  color: var(--color-complementos);
+}
+
+.progreso75 {
+  width: 100%;              
+  max-width: 500px;         
+  height: 14px;             
+  appearance: none;               
+  -webkit-appearance: none;       
+  border-radius: 10px;            
+  overflow: hidden;
+  background-color: var(--color-crack); 
+  display: block;
+  margin: 0 auto; 
+}
+.labelprogreso{
+  display: block;            
+  text-align: center;        
+  margin-bottom: 12px;
+  font-family: var(--fuente-principal);
+  font-weight: var(--peso-subtitulo);
+  color: var(--color-texto);
+}
+
+
+/* --- 1. CONTENEDOR DE SEGURIDAD (Móvil y Tablet) --- */
+.tabla-contenedor {
+  width: 100%;
+  overflow-x: auto; /* Permite deslizar la tabla lateralmente en móviles */
+  margin: 2rem 0;
+  -webkit-overflow-scrolling: touch; /* Suavidad en iOS */
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  min-width: 600px; /* IMPORTANTE: Evita que la tabla se comprima demasiado */
+  border-collapse: collapse;
+  background-color: var(--color-crack, #2c3e50);
+  font-family: var(--fuente-principal);
+  color: var(--color-texto, white);
+}
+
+/* --- 2. ESTILOS DE CELDAS Y CABECERAS --- */
+caption {
+  display: flex; /* Para alinear imagen y texto */
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--color-primario, #106a3c);
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+thead th {
+  background-color: var(--color-secundario, #1a1a1a);
+  padding: 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--color-complementos);
+}
+
+th, td {
+  padding: 1rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9rem;
+}
+
+tbody th {
+  background-color: rgba(0,0,0,0.2);
+  text-align: left;
+  min-width: 150px; /* Asegura espacio para las etiquetas de fila */
+}
+
+/* --- 3. RESPONSIVE Y MEJORAS --- */
+
+/* Desktop ( >= 1024px) */
+@media (min-width: 1024px) {
+  .tabla-contenedor {
+    overflow-x: visible; /* Ya no hace falta el scroll lateral */
+    max-width: 1000px;
+    margin: 4rem auto;
+  }
+
+  table {
+    min-width: 100%; /* Se adapta al contenedor */
+  }
+
+  th, td {
+    font-size: 1rem; /* Texto un poco más grande en Desktop */
+  }
+}
+
+/* Efecto hover solo para dispositivos que tienen puntero (no táctiles) */
+@media (hover: hover) {
+  tbody tr:hover {
+    background-color: var(--color-complementos);
+    transition: 0.3s ease;
+  }
+}
+
+form {
+  max-width: 400px;
+  margin: 2rem auto;
+  font-family: var(--fuente-principal);
+  color: var(--color-texto);
+}
+
+fieldset {
+  border: none;
+  padding: 1rem;
+  background-color: var(--color-crack);
+  border-radius: 8px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: var(--peso-subtitulo);
+}
+
+.labelpregunta{
+  display: inline;         
+  margin-right: 0.3rem;
+}
+
+fieldset{
+  border: 1px solid var(--color-secundario);
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+fieldset fieldset input[type="radio"] {
+  display: inline;         
+  margin-right: 0.2rem;     
+}
+
+legend {
+  font-weight: var(--peso-subtitulo);
+  color: var(--color-complementos);
+  display: inline-flex;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-secundario);
+  border-radius: 4px;
+  font-family: var(--fuente-principal);
+}
+
+.homebutton {
+  background-color: var(--color-primario);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  font-weight: var(--peso-titulo);
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.homebutton:hover {
+  background-color: var(--color-crack);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(16, 106, 60, 0.2);
+}
+
+.whatbutton{
+  background-color: var(--color-primario);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  font-weight: var(--peso-titulo);
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+}
+
+.whatbutton:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(16, 106, 60, 0.2);
+}
+
+.mailbutton{
+  background-color: var(--color-crack);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  font-weight: var(--peso-titulo);
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mailbutton:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(16, 106, 60, 0.2);
+}
+
+.formbutton{
+  background-color: var(--color-primario);
+  color: var(--color-texto);
+  font-family: var(--fuente-principal);
+  font-weight: var(--peso-titulo);
+  padding: 0.8rem 1.8rem;
+  border: solid var(--color-superpoderoso);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: auto;
+}
+.formbutton:hover{
+  background-color: var(--color-crack);
+  transform: translateY(-3px);
+}
+
+/* --- 1. ESTILOS BASE (Móvil: < 768px) --- */
+.hero {
+  display: flex;
+  flex-direction: column; /* Apilado vertical */
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  background-color: var(--color-fondo);
+  text-align: center;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.hero-image img, 
+.hero-image-personal {
+  width: 100%; /* En móvil que ocupen el ancho disponible */
+  max-width: 400px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(16, 106, 60, 0.15);
+}
+
+.homevalores {
+  display: flex;
+  flex-direction: column; /* Tarjetas una debajo de otra */
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+}
+
+.homevalor {
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(16, 106, 60, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.homevalor img {
+  width: 100px;
+  height: auto;
+}
+
+/* --- 2. TABLET (768px a 1023px) --- */
+@media (min-width: 768px) {
+  .hero {
+    padding: 3rem;
+  }
+
+  /* Las tarjetas de valores pasan a 2 columnas, la tercera quedará abajo centrada */
+  .homevalores {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Opcional: que la última tarjeta ocupe las dos columnas para que no quede un hueco */
+  /* .homevalor:last-child { grid-column: span 2; } */
+}
+
+/* --- 3. DESKTOP (1024px en adelante) --- */
+@media (min-width: 1024px) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Volvemos al grid de 2 columnas */
+    text-align: left;
+    gap: 4rem;
+    padding: 4rem 10%; /* Más aire a los lados */
+  }
+
+  /* Zig-zag automático: invierte orden en secciones pares */
+  section.hero:nth-of-type(even) {
+    direction: rtl; /* Invierte dirección del flujo */
+  }
+  section.hero:nth-of-type(even) .hero-text {
+    direction: ltr; /* Mantiene el texto alineado normal */
+  }
+
+  .homevalores {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas perfectas */
+    padding: 4rem 5%;
+  }
+
+  .hero-image img {
+    width: 100%; /* En desktop confiamos en el max-width */
+  }
+}
+
+.faqs {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.intro-proyectos {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.intro-proyectos div {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.empresas-section {
+  padding: 4rem 2rem;
+  background-color: var(--color-fondo);
+  text-align: center;
+}
+
+.empresas-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.empresas-lista {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.empresa-card {
+  background-color: white;
+  border-radius: 14px;
+  padding: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  box-shadow: 0 8px 20px rgba(16, 106, 60, 0.08);
+  transition: all 0.3s ease;
+}
+
+.empresa-card img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.empresa-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(16, 106, 60, 0.15);
+}
+
+.proyecto-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.proyecto-lista {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.proyecto-card {
+  background-color: white;
+  border-radius: 14px;
+  padding: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  box-shadow: 0 8px 20px rgba(16, 106, 60, 0.08);
+  transition: all 0.3s ease;
+}
+
+/* --- 1. ESTILOS BASE (Móvil: < 768px) --- */
+.proyectoenumerados {
+  display: grid;
+  /* En móvil, 1 o 2 columnas dependiendo de qué tan pequeñas sean las imágenes */
+  grid-template-columns: repeat(1, 1fr); 
+  gap: 2rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.proyectoenumerados article {
+  background-color: var(--color-crack); /* Opcional: fondo para resaltar */
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.proyectoenumerados img {
+  /* Eliminamos la rigidez de los 150px del HTML */
+  width: 100%;
+  max-width: 150px; 
+  height: auto;
+  
+}
+
+.parrproyectos {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--color-texto);
+}
+
+/* --- 2. TABLET (768px a 1023px) --- */
+@media (min-width: 768px) {
+  .proyectoenumerados {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en Tablet */
+    gap: 3rem;
+    padding: 3rem;
+  }
+}
+
+/* --- 3. DESKTOP (1024px en adelante) --- */
+@media (min-width: 1024px) {
+  .proyectoenumerados {
+    grid-template-columns: repeat(4, 1fr); /* Tu diseño original de 4 columnas */
+    padding: 4rem 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+ 
+
+
+ 
+}
+
+/* --- 1. ESTILOS BASE (Móvil y Tablet: < 1024px) --- */
+.sobremicards {
+  display: flex;
+  flex-direction: column; /* Una tarjeta debajo de otra */
+  gap: 2rem;
+  padding: 2rem 1.5rem; /* Menos padding lateral en móvil */
+  max-width: 600px; /* Limitamos el ancho para que el texto no sea infinito */
+  margin: 0 auto;
+}
+
+.sobremi-card {
+  background-color: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(16, 106, 60, 0.08);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sobremi-card img {
+  /* Controlamos el icono desde CSS */
+  width: 60px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.sobremi-card h3 {
+  color: var(--color-texto);
+  margin-bottom: 0.5rem;
+}
+
+.sobremi-card p {
+  line-height: 1.6; /* Mejora la lectura de bloques largos de texto */
+  color: var(--color-texto);
+  text-align: justify; /* Opcional: para bloques largos de historia */
+}
+
+/* --- 2. DESKTOP (>= 1024px) --- */
+@media (min-width: 1024px) {
+  .sobremicards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Volvemos a las 2 columnas */
+    max-width: 1000px;
+    padding: 4rem 2rem;
+    gap: 3rem;
+  }
+
+  .sobremi-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(16, 106, 60, 0.15);
+  }
+}
+
+.hero-banner {
+  background: var(--color-secundario);
+  color: var(--color-texto);
+  padding: 6rem 2rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 16px;
+  margin: 3rem auto;
+  max-width: 1000px;
+}
+
+.hero-banner .hero-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  font-weight: var(--peso-titulo);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem; 
+  justify-content: center;
+  flex-wrap: wrap; 
+}
+
+.mapa{
+  display: block;
+  margin: auto;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+.videopersonal{
+  display: block;
+  margin: auto;
+  
+}
+
+.blog-carrusel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 2rem;
+  scroll-snap-type: x mandatory;
+}
+
+.blog-carrusel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.blog-carrusel::-webkit-scrollbar-thumb {
+  background-color: var(--color-superpoderoso);
+  border-radius: 4px;
+}
+
+.blog-card img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.blog-card h2 {
+  margin-bottom: 1rem;
+}
+
+.blog-card p {
+  text-align: justify;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(16, 106, 60, 0.15);
+}
+
+.blog-card {
+  flex: 0 0 calc((100% - 4rem) / 3); 
+  background-color: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(16, 106, 60, 0.08);
+  scroll-snap-align: start; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
